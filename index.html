@@ -13,7 +13,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <a href="#home">Nazier</a>
+                <a href="#home">Nazier Abdurahman</a>
             </div>
             <div class="nav-menu" id="navMenu">
                 <ul class="nav-list">
@@ -24,6 +24,7 @@
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
             </div>
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
             <div class="nav-toggle" id="navToggle">
                 <span></span>
                 <span></span>
@@ -68,7 +69,7 @@
                     <pre class="code-content">
 <span class="keyword">class</span> <span class="class-name">Developer</span> {
     <span class="keyword">constructor</span>() {
-        <span class="keyword">this</span>.name = <span class="string">"Nazier"</span>;
+        <span class="keyword">this</span>.name = <span class="string">"<span id="codeName" class="code-typing"></span>"</span>;
         <span class="keyword">this</span>.degree = <span class="string">"CS + Data Analytics"</span>;
         <span class="keyword">this</span>.passion = <span class="string">"Building Amazing Things"</span>;
     }
@@ -118,9 +119,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="about-image">
-                    <img src="https://via.placeholder.com/400x400/4F46E5/ffffff?text=Your+Photo" alt="Nazier">
-                </div>
             </div>
         </div>
     </section>
@@ -129,12 +127,98 @@
     <section id="projects" class="projects">
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
+
+            <div class="project-spotlight" id="spotlight">
+                <button class="spotlight-nav prev" aria-label="Previous project" id="spotlightPrev"><i class="fas fa-arrow-left"></i></button>
+                <div class="spotlight-track" id="spotlightTrack">
+                    <article class="spotlight-slide active">
+                        <div class="spotlight-media gradient-sm">
+                            <svg viewBox="0 0 600 300" preserveAspectRatio="xMidYMid slice" class="spotlight-svg">
+                                <defs>
+                                    <linearGradient id="studymateGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#4F46E5"/>
+                                        <stop offset="100%" stop-color="#06B6D4"/>
+                                    </linearGradient>
+                                </defs>
+                                <rect width="600" height="300" fill="url(#studymateGrad)"/>
+                                <g fill="rgba(255,255,255,0.25)">
+                                    <circle cx="100" cy="80" r="6"/>
+                                    <circle cx="220" cy="160" r="10"/>
+                                    <circle cx="480" cy="120" r="8"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="spotlight-content">
+                            <div class="spotlight-badge">AI + Education</div>
+                            <h3>StudyMate — AI Study Assistant</h3>
+                            <p>Upload textbooks, slides, and notes; chat with an AI about your work; auto-generate flashcards. Built for deep learning, not shallow answers.</p>
+                            <div class="spotlight-tags">
+                                <span>React</span><span>Node</span><span>OpenAI</span><span>MongoDB</span>
+                            </div>
+                            <div class="spotlight-ctas">
+                                <a class="btn btn-primary" href="https://github.com/Nazier-123/StudyMate" target="_blank">View Code</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="spotlight-slide">
+                        <div class="spotlight-media gradient-gs">
+                            <svg viewBox="0 0 600 300" preserveAspectRatio="xMidYMid slice" class="spotlight-svg">
+                                <defs>
+                                    <linearGradient id="restGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="#10B981"/>
+                                        <stop offset="100%" stop-color="#134E4A"/>
+                                    </linearGradient>
+                                </defs>
+                                <rect width="600" height="300" fill="url(#restGrad)"/>
+                                <path d="M0,240 C120,220 180,260 300,240 C420,220 480,260 600,240 L600,300 L0,300 Z" fill="rgba(255,255,255,0.2)"/>
+                            </svg>
+                        </div>
+                        <div class="spotlight-content">
+                            <div class="spotlight-badge">Geo + Lifestyle</div>
+                            <h3>Halal Restaurant Finder</h3>
+                            <p>Find halal restaurants near you with live geolocation, ratings and smart filters. Designed for fast decisions on the go.</p>
+                            <div class="spotlight-tags">
+                                <span>React</span><span>Maps</span><span>Geolocation</span><span>Node</span>
+                            </div>
+                            <div class="spotlight-ctas">
+                                <a class="btn btn-primary" href="https://github.com/Nazier-123/restaurant-finder" target="_blank">View Code</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="spotlight-slide">
+                        <div class="spotlight-media gradient-ph">
+                            <svg viewBox="0 0 600 300" preserveAspectRatio="xMidYMid slice" class="spotlight-svg">
+                                <defs>
+                                    <linearGradient id="gameGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#EF4444"/>
+                                        <stop offset="100%" stop-color="#8B5CF6"/>
+                                    </linearGradient>
+                                </defs>
+                                <rect width="600" height="300" fill="url(#gameGrad)"/>
+                                <g stroke="rgba(255,255,255,0.35)" stroke-width="2">
+                                    <polyline points="0,260 80,220 160,240 240,200 320,220 400,180 480,210 560,170 600,190" fill="none"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="spotlight-content">
+                            <div class="spotlight-badge">Game Dev</div>
+                            <h3>Project H — Isometric Dungeon Crawler</h3>
+                            <p>Adrenaline roguelike hack-and-slash. Procedural levels, ability upgrades, relentless enemies. Built with Unity/C#.</p>
+                            <div class="spotlight-tags">
+                                <span>Unity</span><span>C#</span><span>Roguelike</span>
+                            </div>
+                            <div class="spotlight-ctas">
+                                <a class="btn btn-primary" href="https://nazier-123.itch.io/project-h-phase-2" target="_blank">Play on itch.io</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <button class="spotlight-nav next" aria-label="Next project" id="spotlightNext"><i class="fas fa-arrow-right"></i></button>
+            </div>
+
             <div class="projects-grid">
                 <!-- Project 1 - StudyMate -->
                 <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/600x400/4F46E5/ffffff?text=StudyMate" alt="StudyMate">
-                    </div>
                     <div class="project-content">
                         <h3>StudyMate - AI Study Assistant</h3>
                         <p>An innovative AI-powered study platform that helps students by allowing them to upload study materials 
@@ -157,9 +241,6 @@
 
                 <!-- Project 2 - Restaurant Finder -->
                 <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/600x400/10B981/ffffff?text=Restaurant+Finder" alt="Restaurant Finder">
-                    </div>
                     <div class="project-content">
                         <h3>Halal Restaurant Finder</h3>
                         <p>A location-based mobile application that helps users discover halal restaurants in their area. 
@@ -182,9 +263,6 @@
 
                 <!-- Project 3 - No-Code Calculator -->
                 <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/600x400/F59E0B/ffffff?text=Calculator+No+JS" alt="Calculator No JS">
-                    </div>
                     <div class="project-content">
                         <h3>Calculator Without JavaScript</h3>
                         <p>An experimental project creating a fully functional calculator using only HTML and CSS, without any 
@@ -206,9 +284,6 @@
 
                 <!-- Project 4 - Project H Game -->
                 <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/600x400/EF4444/ffffff?text=Project+H" alt="Project H">
-                    </div>
                     <div class="project-content">
                         <h3>Project H - Isometric Dungeon Crawler</h3>
                         <p>An adrenaline-fueled isometric roguelike hack-and-slash game. Slay relentless hordes of enemies 
@@ -229,57 +304,6 @@
                     </div>
                 </div>
 
-                <!-- Project 5 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/600x400/8B5CF6/ffffff?text=Project+5" alt="Project 5">
-                    </div>
-                    <div class="project-content">
-                        <h3>Chat Application</h3>
-                        <p>A real-time chat application with private messaging, group chats, file sharing, and 
-                           end-to-end encryption features.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Socket.io</span>
-                            <span class="tech-tag">Express.js</span>
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">PostgreSQL</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
-                            </a>
-                            <a href="#" class="project-link">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 6 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/600x400/06B6D4/ffffff?text=Project+6" alt="Project 6">
-                    </div>
-                    <div class="project-content">
-                        <h3>Blog Platform</h3>
-                        <p>A modern blogging platform with markdown support, SEO optimization, commenting system, 
-                           and admin dashboard for content management.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Next.js</span>
-                            <span class="tech-tag">MDX</span>
-                            <span class="tech-tag">Prisma</span>
-                            <span class="tech-tag">Vercel</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
-                            </a>
-                            <a href="#" class="project-link">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>

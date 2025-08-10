@@ -60,17 +60,29 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Navbar Background on Scroll
+// Navbar Background on Scroll (theme-aware)
 const navbar = document.querySelector('.navbar');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+function updateNavbarBg() {
+    const isDark = document.body.classList.contains('dark');
+    const scrolled = window.scrollY > 50;
+    if (isDark) {
+        navbar.style.background = scrolled
+            ? 'rgba(13, 18, 38, 0.92)'
+            : 'rgba(13, 18, 38, 0.80)';
+        navbar.style.boxShadow = scrolled
+            ? '0 8px 24px rgba(0, 0, 0, 0.35)'
+            : '0 2px 12px rgba(0, 0, 0, 0.25)';
     } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+        navbar.style.background = scrolled
+            ? 'rgba(255, 255, 255, 0.98)'
+            : 'rgba(255, 255, 255, 0.95)';
+        navbar.style.boxShadow = scrolled
+            ? '0 4px 20px rgba(0, 0, 0, 0.1)'
+            : '0 2px 10px rgba(0, 0, 0, 0.1)';
     }
-});
+}
+window.addEventListener('scroll', updateNavbarBg);
+// initial paint and on theme change handled below
 
 // Animate Elements on Scroll (Intersection Observer)
 const observerOptions = {
@@ -191,10 +203,66 @@ window.addEventListener('scroll', () => {
 });
 */
 
+// Theme toggle with localStorage
+const themeToggle = document.getElementById('themeToggle');
+const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+const storedTheme = localStorage.getItem('theme');
+if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+    document.body.classList.add('dark');
+}
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark');
+        localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+        themeToggle.innerHTML = document.body.classList.contains('dark') ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        updateNavbarBg();
+    });
+}
+// run on load
+updateNavbarBg();
+
+// Spotlight carousel
+(function(){
+    const track = document.getElementById('spotlightTrack');
+    if (!track) return;
+    const slides = Array.from(track.querySelectorAll('.spotlight-slide'));
+    let index = 0;
+    const show = i => {
+        slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+    };
+    const next = () => { index = (index + 1) % slides.length; show(index); };
+    const prev = () => { index = (index - 1 + slides.length) % slides.length; show(index); };
+    document.getElementById('spotlightNext')?.addEventListener('click', next);
+    document.getElementById('spotlightPrev')?.addEventListener('click', prev);
+    // Keyboard access
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') next();
+        if (e.key === 'ArrowLeft') prev();
+    });
+    // Auto-advance
+    setInterval(next, 7000);
+})();
+
 // Add Loading Animation
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
 });
+
+// Typing effect for code window name (this.name)
+(function(){
+    const codeNameEl = document.getElementById('codeName');
+    if (!codeNameEl) return;
+    const fullName = 'Nazier Abdurahman';
+    let i = 0;
+    const type = () => {
+        if (i <= fullName.length) {
+            codeNameEl.textContent = fullName.slice(0, i);
+            i++;
+            setTimeout(type, 80);
+        }
+    };
+    window.addEventListener('load', () => setTimeout(type, 800));
+})();
 
 // Console Easter Egg
 console.log('%c Hello, fellow developer! 👋', 'font-size: 20px; color: #4F46E5; font-weight: bold;');
