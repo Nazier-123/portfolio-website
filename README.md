@@ -18,6 +18,7 @@ A modern, responsive portfolio website built with React, showcasing projects, sk
 3. **Calculator Without JavaScript** - Pure HTML/CSS calculator
 4. **Project H - Isometric Dungeon Crawler** - Unity game development
 5. **Gen.G Fanmade Website** - Esports organization fan site
+6. **Fork & Flame** - Cape Coloured fine dining restaurant website
 
 ## Getting Started
 
@@ -63,6 +64,8 @@ portfolio-website/
 │   │   ├── Skills.js
 │   │   ├── Contact.js
 │   │   └── Footer.js
+│   ├── assets/
+│   │   └── Gen.G_logo.png
 │   ├── App.js
 │   ├── index.js
 │   └── index.css
