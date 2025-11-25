@@ -8,7 +8,7 @@ const About = () => {
         <div className="about-content">
           <div className="about-text">
             <p>
-              I'm a Software Developer Intern with a Computer Science degree and a Post Graduate Diploma in Data Analytics.
+              I'm a Software Developer Intern with a Bachelor's degree in Computer Science and a Post Graduate Diploma in Data Analytics.
               My passion lies at the intersection of software development and data-driven solutions, where I can leverage
               both technical skills and analytical insights to build meaningful applications.
             </p>
